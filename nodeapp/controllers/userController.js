@@ -51,16 +51,16 @@ async function admindasbhard(req, res) {
 
 // login a User
 async function login(req, res, next) {
-  const { username, password } = req.body;
+  const { email, password } = req.body;
   try {
-    const user = await User.findOne({ username });
+    const user = await User.findOne({ email });
     if (!user) return res.status(404).json({ error: "User not found" });
     if (user.password != password)
       return res.status(401).json({ error: "Invalid credentials" });
     var token = GenerateToken(user);
     return res.status(200).json({
       message: "User logged in successfully",
-      username: user.username,
+      email: user.email,
       userid: user._id,
       token: token,
     });

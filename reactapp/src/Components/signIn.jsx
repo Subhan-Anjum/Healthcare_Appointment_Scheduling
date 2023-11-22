@@ -1,27 +1,69 @@
-import React from 'react'
+import React, { useState } from 'react';
+import {Link,useHistory} from 'react-router-dom';
 
 export default function SignIn() {
-    return (
-        <div>
-            <div class="login-box">
-                <h1>Login</h1>
-                <form name="login">
-                    <div class="textbox">
-                        <i class="fas fa-user"></i>
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+ const history =useHistory();
 
-                        Username
-                        <input type="text" name="userid" />
-                    </div>
 
-                    <div class="textbox">
-                        <i class="fas fa-lock"></i>
-                        Password<input type="password" name="pswrd" />
-                    </div>
-                    <input type="button" onclick="check(this.form)" value="Login" />
-                    <input type="reset" value="Cancel" />
-                </form>
+  const handleLogin = async () => {
+    try {
+      const response = await fetch('http://localhost:3005/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
 
-            </div>
-        </div >
-    )
+      if (response.ok) {
+        // Login successful, handle accordingly (e.g., redirect)
+        console.log('Login successful');
+        history.push("/");
+      } else {
+        // Handle login failure
+        console.error('Login failed');
+        const data=await response.json();
+        window.alert(data.error)
+      }
+    } catch (error) {
+      console.error('Error during login:', error.message);
+    }
+  };
+
+  return (
+    <div>
+      <div className="login-box">
+        <h1>Login</h1>
+        <form>
+          <div className="textbox">
+            <i className="fas fa-user"></i>
+            Email
+            <input
+              type="email"
+              required
+              name="userid"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+
+          <div className="textbox">
+            <i className="fas fa-lock"></i>
+            Password
+            <input
+              type="password"
+              name="pswrd"
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <input type="button" onClick={handleLogin} value="Login" />
+          <input type="reset" value="Cancel" />
+        </form>
+      </div>
+    </div>
+  );
 }
