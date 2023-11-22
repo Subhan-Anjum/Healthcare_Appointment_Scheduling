@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Navbar() {
     return (
@@ -43,7 +44,7 @@ export default function Navbar() {
                             </li>
                         </ul>
                         <form class="d-flex" role="search">
-                            <button class="btn1" type="submit">Log In</button>
+                            <button class="btn1" type="submit" ><Link to="/login" >Log In</Link></button>
                             <button class="btn1" type="submit">Sign Up</button>
                         </form>
                     </div>
