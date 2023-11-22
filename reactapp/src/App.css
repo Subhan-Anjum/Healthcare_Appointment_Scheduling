@@ -1,0 +1,12 @@
+.main-logo {
+  width: 20%;
+
+}
+
+.btn-login {
+  margin-right: 10px;
+}
+
+a.nav-link.active {
+  padding-left: 20px;
+}
