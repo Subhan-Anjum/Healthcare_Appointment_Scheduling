@@ -1,5 +1,8 @@
 import React from 'react'
 import Navbar from './navbar'
+import Footer from './footer'
+import {Link,useHistory} from 'react-router-dom';
+import Appointment from './Appointment'
 
 export default function Home() {
     return (
@@ -33,7 +36,7 @@ export default function Home() {
                             <p>
                                 Video Consultation with top <br /> spectialist in <strong>Rs. 1000</strong>
                             </p>
-                            <button class="btn1"> Book appointment &nbsp;&gt;
+                            <button class="btn1"><Link to="/appointment">Book Appointment</Link>  
                             </button>
                         </div>
                     </div>
@@ -54,7 +57,7 @@ export default function Home() {
 
             </div>
             <section>
-                <h1 class="text-center mt-5 textHead">Find doctors by health concern </h1>
+                <h1 class="text-center mt-5 textHead"><b>Find doctors by health concern</b> </h1>
                 <div class="CenterEle">
                     <div class="container-fluid">
                         <div class="RoWImages">
@@ -107,35 +110,36 @@ export default function Home() {
                 </div>
             </section>
             <section>
+                <h1 class="text-center mt-5 textHead"><b>Some Patients Reviews</b></h1>
                 <div class="container-1">
                     <div class="card__container">
                         <article class="card__article">
-                            <img src="..\images\1.jpg" alt="image" class="card__img" />
+                            <img src="images/pat1.jpg" alt="image" class="card__img" />
 
                             <div class="card__data">
-                                <span class="card__description">Vancouver Mountains, Canada</span>
-                                <h2 class="card__title">The Great Path</h2>
-                                <a href="#" class="card__button">Read More</a>
+                                <span class="card__description">A trusted online resource  providing top-tier services with a focus on excellence</span>
+                                <div>⭐⭐⭐⭐⭐</div>
+                                <a href="#" class="card__button">Mariyam</a>
                             </div>
                         </article>
 
                         <article class="card__article">
-                            <img src="..\images\2.jpg" alt="image" class="card__img" />
+                            <img src="images/pat2.jpg" alt="image" class="card__img" />
 
                             <div class="card__data">
-                                <span class="card__description">Poon Hill, Nepal</span>
-                                <h2 class="card__title">Starry Night</h2>
-                                <a href="#" class="card__button">Read More</a>
+                                <span class="card__description">An outstanding online platform delivering top-notch solutions , delivering exceptional service quality</span>
+                                <div>⭐⭐⭐⭐⭐</div>
+                                <a href="#" class="card__button">Jessica</a>
                             </div>
 
                         </article>
 
                         <article class="card__article">
-                            <img src="..\images\3.jpg" alt="image" class="card__img" />
+                            <img src="images/pat3.jpg" alt="image" class="card__img" />
                             <div class="card__data">
-                                <span class="card__description">Bojcin Forest, Serbia</span>
-                                <h2 class="card__title">Path Of Peace</h2>
-                                <a href="#" class="card__button">Read More</a>
+                                <span class="card__description">A premier destination for high-quality services and unmatched expertise.     Provide quality Services</span>
+                                <div>⭐⭐⭐⭐⭐</div>
+                                <a href="#" class="card__button">Hassan</a>
                             </div>
                         </article>
                     </div>
@@ -178,6 +182,8 @@ export default function Home() {
                     </div>
                 </div>
             </section>
+            <  Footer />
         </div>
+
     )
 }

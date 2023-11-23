@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../Styles/signIn.css';
 import {Link,useHistory} from 'react-router-dom';
 
 export default function SignUp() {
@@ -83,3 +84,4 @@ export default function SignUp() {
     </div>
   );
 }
+

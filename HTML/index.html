@@ -1,0 +1,503 @@
+<html lang="en" class="k-webkit k-webkit119">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Eduko</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="/material-content/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="/material-content/css/mdb.min.css" rel="stylesheet">    <!-- Your custom styles (optional) -->
+    <link href="/material-content/css/style.min.css" rel="stylesheet">
+
+
+    <style type="text/css">
+        html,
+        body,
+        header,
+        .carousel {
+            height: 60vh;
+        }
+
+        .box {
+            display: flex;
+        }
+
+        .right {
+            flex: 1;
+            /* grow */
+            /*border: 1px dashed #f0f;*/
+        }
+
+        @media only screen and (max-width: 600px) {
+
+            .left {
+                flex: 0 0 40px;
+                /* do not grow, do not shrink, start at 250px */
+                /*border: 1px dashed #00f;*/
+            }
+        }
+
+        @media only screen and (min-width: 601px) {
+
+            .left {
+                flex: 0 0 290px;
+                /* do not grow, do not shrink, start at 250px */
+                /*border: 1px dashed #00f;*/
+            }
+        }
+
+        /*header{
+            height: 80px !important;
+        }*/
+        @media (max-width: 740px) {
+
+            html,
+            body,
+            header,
+            .carousel {
+                height: 100vh;
+            }
+        }
+
+        @media (min-width: 800px) and (max-width: 850px) {
+
+            html,
+            body,
+            header,
+            .carousel {
+                height: 100vh;
+            }
+        }
+
+        @media (min-width: 800px) and (max-width: 850px) {
+            .navbar:not(.top-nav-collapse) {
+                background: #929FBA !important;
+                height: 15vh;
+            }
+        }
+    </style>
+    <style type="text/css">
+        /* Chart.js */
+        @-webkit-keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        .chartjs-render-monitor {
+            -webkit-animation: chartjs-render-animation 0.001s;
+            animation: chartjs-render-animation 0.001s;
+        }
+    </style>
+</head>
+
+<body style="background-color:#fafafa">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .widthc {
+            max-width: 100% !important;
+        }
+
+
+
+        .no-scroll-y {
+            overflow-y: hidden;
+        }
+
+        /* Preloader */
+        .ctn-preloader {
+            align-items: center;
+            cursor: none;
+            display: flex;
+            height: 100%;
+            justify-content: center;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            z-index: 999999;
+        }
+
+        .ctn-preloader .animation-preloader {
+            position: absolute;
+            z-index: 999999;
+        }
+
+        /* Spinner cargando */
+        .ctn-preloader .animation-preloader .spinner {
+            animation: spinner 1s infinite linear;
+            border-radius: 50%;
+            border: 3px solid rgba(0, 0, 0, 0.2);
+            border-top-color: #000000;
+            /* No se identa por orden alfabetico para que no lo sobre-escriba */
+            height: 9em;
+            margin: 0 auto 3.5em auto;
+            width: 9em;
+        }
+
+        /* Texto cargando */
+        .ctn-preloader .animation-preloader .txt-loading {
+            font: bold 5em 'Montserrat', sans-serif;
+            text-align: center;
+            user-select: none;
+        }
+
+        .ctn-preloader .animation-preloader .txt-loading .letters-loading:before {
+            animation: letters-loading 4s infinite;
+            color: #000000;
+            content: attr(data-text-preloader);
+            left: 0;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            transform: rotateY(-90deg);
+        }
+
+        .ctn-preloader .animation-preloader .txt-loading .letters-loading {
+            color: rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(2):before {
+            animation-delay: 0.2s;
+        }
+
+        .ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(3):before {
+            animation-delay: 0.4s;
+        }
+
+        .ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(4):before {
+            animation-delay: 0.6s;
+        }
+
+        .ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(5):before {
+            animation-delay: 0.8s;
+        }
+
+        .ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(6):before {
+            animation-delay: 1s;
+        }
+
+        .ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(7):before {
+            animation-delay: 1.2s;
+        }
+
+        .ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(8):before {
+            animation-delay: 1.4s;
+        }
+
+        .ctn-preloader .loader-section {
+            background-color: #ffffff;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            width: calc(50% + 1px);
+        }
+
+        .ctn-preloader .loader-section.section-left {
+            left: 0;
+        }
+
+        .ctn-preloader .loader-section.section-right {
+            right: 0;
+        }
+
+        /* Efecto de fade en la animación de cargando */
+        .loaded .animation-preloader {
+            opacity: 0;
+            transition: 0.3s ease-out;
+        }
+
+        /* Efecto de cortina */
+        .loaded .loader-section.section-left {
+            transform: translateX(-101%);
+            transition: 0.7s 0.3s all cubic-bezier(0.1, 0.1, 0.1, 1.000);
+        }
+
+        .loaded .loader-section.section-right {
+            transform: translateX(101%);
+            transition: 0.7s 0.3s all cubic-bezier(0.1, 0.1, 0.1, 1.000);
+        }
+
+        /* Animación del preloader */
+        @keyframes spinner {
+            to {
+                transform: rotateZ(360deg);
+            }
+        }
+
+        /* Animación de las letras cargando del preloader */
+        @keyframes letters-loading {
+
+            0%,
+            75%,
+            100% {
+                opacity: 0;
+                transform: rotateY(-90deg);
+            }
+
+            25%,
+            50% {
+                opacity: 1;
+                transform: rotateY(0deg);
+            }
+        }
+
+        /* Tamaño de portatil hacia atras (portatil, tablet, celular) */
+        @media screen and (max-width: 767px) {
+
+            /* Preloader */
+            /* Spinner cargando */
+            .ctn-preloader .animation-preloader .spinner {
+                height: 8em;
+                width: 8em;
+            }
+
+            /* Texto cargando */
+            .ctn-preloader .animation-preloader .txt-loading {
+                font: bold 3.5em 'Montserrat', sans-serif;
+            }
+        }
+
+        @media screen and (max-width: 500px) {
+
+            /* Prelaoder */
+            /* Spinner cargando */
+            .ctn-preloader .animation-preloader .spinner {
+                height: 7em;
+                width: 7em;
+            }
+
+            /* Texto cargando */
+            .ctn-preloader .animation-preloader .txt-loading {
+                font: bold 2em 'Montserrat', sans-serif;
+            }
+        }
+    </style>
+    <!-- Preloader -->
+
+    <style>
+        .top-nav-collapse {
+            background-color: #3F51B5;
+        }
+    </style>
+    <header>
+        <!-- Navbar -->
+
+        <!-- Navbar -->
+
+
+
+        <style>
+            header {
+                height: 10vh !important;
+            }
+        </style>
+    </header>
+    <div class="min-vh-100 d-flex flex-column justify-content-between">
+        <!--Main layout-->
+        <div class=" body-content">
+
+
+
+            <div class="wow fadeIn animated" id="top" data-wow-duration="1s" data-wow-delay="0.5s"
+                style="visibility: visible; animation-name: fadeIn; animation-delay: 0.5s;">
+                <div class="container">
+                    <div class="row" style="padding-bottom:50px">
+                        <div class="col-lg-12">
+                            <div class="row">
+                                <div class="col-lg-4 offset-lg-4 align-self-center">
+                                    <div class="left-content show-up header-text wow animated" data-wow-duration="1s"
+                                        data-wow-delay="1s"
+                                        style="visibility: visible; animation-name: none; animation-delay: 1s;">
+                                        <div class="row card" style="border-radius: 15px;">
+                                            <div class=" px-5 py-4"
+                                                style="background-color: #FFFFFF; border-radius: 15px; width: -webkit-fill-available; font-size: 14px;">
+                                                <div class="d-flex justify-content-center">
+                                                    <a class="navbar-brand mx-4" href="/"
+                                                        style="font-size: 36px;display:inline-block;font-weight: bolder;margin-bottom:10px">EDUKO</a>
+                                                </div>
+                                                <h3 class="text-center mb-4" style="font-weight: 400;font-size: 20px;">
+                                                    Login to Your Account</h3>
+                                                <form action="/Account/Login" id="loginform" method="post"
+                                                    style="margin-top: 80px;"><input name="__RequestVerificationToken"
+                                                        type="hidden"
+                                                        value="XFwA9fVbmlB--Z2bv05EUPlrD0uZUqWa9JK5xlYYIgl_AFAlCUm-SBiBG2cMBdujads1hUtuNJDJAH20WD4UFEWlqPizcQ6eOmbzqVWlJtk1">
+                                                    <div class="md-form md-outline form-lg">
+                                                        <input class="form-control form-control-lg" data-val="true"
+                                                            data-val-email="The Email field is not a valid e-mail address."
+                                                            data-val-required="The Email field is required." id="Email"
+                                                            name="Email" required="required" style="font-size: 16px;"
+                                                            type="text" value="">
+                                                        <span class="field-validation-valid text-danger"
+                                                            data-valmsg-for="Email" data-valmsg-replace="true"
+                                                            style="font-size: 16px;"></span>
+                                                        <label class="form-lg" for="Email"
+                                                            style="font-size: 16px;">Email</label>
+                                                    </div>
+                                                    <div class="form-lg md-form md-outline">
+                                                        <input class="form-control form-control-lg" data-val="true"
+                                                            data-val-required="The Password field is required."
+                                                            id="Password" name="Password" style="font-size: 16px;"
+                                                            type="password">
+                                                        <span class="field-validation-valid text-danger"
+                                                            data-valmsg-for="Password" data-valmsg-replace="true"
+                                                            style="font-size: 16px;"></span>
+                                                        <label class="form-lg" for="Password"
+                                                            style="font-size: 16px;">Password</label>
+                                                    </div>
+                                                    <p>
+
+                                                        <a href="/Account/ForgotPassword">Forgot your password?</a>
+                                                        <br>
+                                                        If your email is not confirmed, <a
+                                                            href="/Account/ResendConfirmation">click here</a> to resend
+                                                        email.
+                                                    </p>
+                                                    <br>
+                                                    <br>
+                                                    <br>
+                                                    <div
+                                                        style="flex-flow: row;display: flex;justify-content: space-between;align-items: center;">
+                                                        <a href="/Account/Register" style="font-weight: bolder;">Create
+                                                            Account</a>
+
+                                                        <button type="button" value="Log in"
+                                                            class="btn btn-primary btn-md waves-effect waves-light"
+                                                            onclick="Login1()" style="height: 48px;font-size: 14px;">
+                                                            Login
+                                                        </button>
+                                                    </div>
+                                                    <br>
+                                                </form>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <script>
+                function Login1() {
+                    $("#loginform").submit();
+                }
+            </script>
+
+        </div>
+        <!--Main layout-->
+        <!--Footer-->
+    </div>
+    <!--/.Footer-->
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="/material-content/js/jquery-3.4.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="/material-content/js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="/material-content/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="/material-content/js/mdb.min.js"></script>
+    <div class="hiddendiv common"></div>
+    <!-- Initializations -->
+
+    <script type="text/javascript" src="/Scripts/Extensions/jquery.validate.min.js"></script>
+    <script src="/Scripts/kendo.web.min.js"></script>
+
+
+
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.117/styles/kendo.common-material.min.css">
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.117/styles/kendo.material.min.css">
+
+
+    <script type="text/javascript" src="/Scripts/Extensions/bootstrap-notify.min.js"></script>
+
+    <script type="text/javascript" src="/Scripts/Custom/Accounts.js"></script>
+    <script type="text/javascript" src="/Scripts/Custom/common.js"></script>
+    <script type="text/javascript" src="/Scripts/Custom/Assignment.js"></script>
+    <script type="text/javascript">
+        // Animations initialization
+        new WOW().init();</script>
+
+    <script>
+        $(document).ready(function () {
+            if (isAuthenticated()) {
+                $('li[name=auth]').show();
+                $('li[name=noauth]').hide();
+            }
+            else {
+                $('li[name=auth]').hide();
+                $('li[name=noauth]').show();
+            }
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+
+            //setTimeout(function () {
+            //    $('#ctn-preloader').addClass('loaded');
+            //    // Una vez haya terminado el preloader aparezca el scroll
+            //    $('body').removeClass('no-scroll-y');
+
+            //    if ($('#ctn-preloader').hasClass('loaded')) {
+            //        // Es para que una vez que se haya ido el preloader se elimine toda la seccion preloader
+            //        $('#preloader').delay(1000).queue(function () {
+            //            $(this).remove();
+            //        });
+            //    }
+            //}, 3000);
+
+        });
+
+        $(document).ready(function () {
+
+            if (isAuthenticated()) {
+                $('li[name=auth]').show();
+                $('li[name=noauth]').hide();
+            }
+            else {
+                $('li[name=auth]').hide();
+                $('li[name=noauth]').show();
+            }
+        });
+    </script>
+
+    <script src="/bundles/jqueryval?v="></script>
+
+
+
+
+</body>
+
+</html>

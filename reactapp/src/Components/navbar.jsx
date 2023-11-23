@@ -21,7 +21,7 @@ export default function Navbar() {
                                 <a class="nav-link active" href="#">About</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" href="contactus.html">Contact Us</a>
+                                <a class="nav-link active" href="/footer">Contact Us</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
@@ -44,8 +44,8 @@ export default function Navbar() {
                             </li>
                         </ul>
                         <form class="d-flex" role="search">
-                            <button class="btn1" type="submit" ><Link to="/login" >Log In</Link></button>
-                            <button class="btn1" type="submit">Sign Up</button>
+                            <button class="btn1" type="submit" ><Link class="navbarBtnLink" to="/login" >Log In</Link></button>
+                            <button class="btn1" type="submit"><Link class="navbarBtnLink" to="/signUp" >Sign Up</Link></button>
                         </form>
                     </div>
                 </div>
