@@ -33,7 +33,7 @@ export default function SignIn() {
   };
 
   return (
-    <div>
+    <div className='loginMainBox'>
       <div className="login-box">
         <h1>Login</h1>
         <form>

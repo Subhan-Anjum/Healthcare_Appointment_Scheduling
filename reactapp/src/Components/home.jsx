@@ -1,10 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Navbar from './navbar'
 import Footer from './footer'
-import {Link,useHistory} from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import Appointment from './Appointment'
 
+
 export default function Home() {
+    const [popupVisible, setPopupVisible] = useState(false);
+
+    const openPopup = () => {
+        setPopupVisible(true);
+    };
+
+    const closePopup = () => {
+        setPopupVisible(false);
+    };
+
     return (
         <div>
             <Navbar />
@@ -36,8 +47,71 @@ export default function Home() {
                             <p>
                                 Video Consultation with top <br /> spectialist in <strong>Rs. 1000</strong>
                             </p>
-                            <button class="btn1"><Link to="/appointment">Book Appointment</Link>  
+                            <button class="btn1" onClick={openPopup}><Link class="navbarBtnLink" >Book Appointment</Link>
                             </button>
+
+                            {popupVisible && (
+                                <div className="popup">
+                                    <div className="popup-content">
+                                        <h2>Find a doctor in oladoc care</h2>
+                                        <div class="Columntext">
+                                            <div class="ImageRowText">
+                                                <div class="ImageIcons">
+                                                    <img src="../images/cardio.png" class="image_icon_size" alt="Doctor Image"></img><Link to="/appointment"class="nametext">Cardiologist</Link>
+                                                </div>
+                                                <div class="ImageIcons">
+                                                    <img src="../images/neuro.png" class="image_icon_size" alt="Doctor Image"></img><Link to="/appointment" class="nametext">Neurologists</Link>
+                                                </div>
+                                                <div class="ImageIcons">
+                                                    <img src="../images/dermatlogist.png" class="image_icon_size" alt="Doctor Image"></img><Link to="/appointment" class="nametext">Dermatologist</Link>
+                                                </div>
+                                                <div class="ImageIcons">
+                                                    <img src="../images/stomach.png" class="image_icon_size" alt="Doctor Image"></img><Link to="/appointment" class="nametext">Gastroenterologist</Link>
+                                                </div>
+
+                                            </div>
+                                            <span className="close-button" onClick={closePopup}>X</span>
+                                        </div>
+                                        <div class="Columntext">
+                                            <div class="ImageRowText">
+                                                <div class="ImageIcons">
+                                                    <img src="../images/b.png" class="image_icon_size" alt="Doctor Image"></img><Link to="/appointment" class="nametext">Pediatrician</Link>
+                                                </div>
+                                                <div class="ImageIcons">
+                                                    <img src="../images/a.png" class="image_icon_size" alt="Doctor Image"></img><Link to="/appointment" class="nametext">Endocrinologist</Link>
+                                                </div>
+                                                <div class="ImageIcons">
+                                                    <img src="../images/dentist.png" class="image_icon_size" alt="Doctor Image"></img><Link to="/appointment" class="nametext">Dentist</Link>
+                                                </div>
+                                                <div class="ImageIcons">
+                                                    <img src="../images/anesthia.png" class="image_icon_size" alt="Doctor Image"></img><Link to="/appointment" class="nametext">Allergist</Link>
+                                                </div>
+
+                                            </div>
+                                            <span className="close-button" onClick={closePopup}>X</span>
+                                        </div>
+                                        <div class="Columntext">
+                                            <div class="ImageRowText">
+                                                <div class="ImageIcons">
+                                                    <img src="../images/cardio.png" class="image_icon_size" alt="Doctor Image"></img><Link to="/appointment" class="nametext">Geriatrician</Link>
+                                                </div>
+                                                <div class="ImageIcons">
+                                                    <img src="../images/a.png" class="image_icon_size" alt="Doctor Image"></img><Link to="/appointment" class="nametext">Pulmonologist</Link>
+                                                </div>
+                                                <div class="ImageIcons">
+                                                    <img src="../images/b.png" class="image_icon_size" alt="Doctor Image"></img><Link to="/appointment" class="nametext">Hematologist</Link>
+                                                </div>
+                                                <div class="ImageIcons">
+                                                    <img src="../images/c.png" class="image_icon_size" alt="Doctor Image"></img><Link to="/appointment" class="nametext">ENT Specialist</Link>
+                                                </div>
+
+                                            </div>
+                                            <span className="close-button" onClick={closePopup}>X</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+
                         </div>
                     </div>
                 </div>

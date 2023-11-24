@@ -31,9 +31,6 @@ export default function Navbar() {
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="#">Dermatoligists</a></li>
                                     <li><a class="dropdown-item" href="#">Anesthesiologists</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider" />
-                                    </li>
                                     <li><a class="dropdown-item" href="#">Cardiologists</a></li>
                                     <li><a class="dropdown-item" href="#">Colon and Rectal Surgeons</a></li>
                                     <li><a class="dropdown-item" href="#">Endocrinologists</a></li>

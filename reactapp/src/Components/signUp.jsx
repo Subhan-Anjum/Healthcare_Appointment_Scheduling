@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import '../Styles/signIn.css';
-import {Link,useHistory} from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 export default function SignUp() {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [role, setRole] = useState('');
-  const history=useHistory();
+  const history = useHistory();
 
   const handleSignup = async () => {
     try {
@@ -16,7 +16,7 @@ export default function SignUp() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ username, email, password,role }),
+        body: JSON.stringify({ username, email, password, role }),
       });
 
       if (response.ok) {
@@ -33,53 +33,55 @@ export default function SignUp() {
   };
 
   return (
-    <div>
-      <div className="login-box">
-        <h1>Create Account</h1>
-        <form>
-          <div className="textbox">
-            <i className="fas fa-user"></i>
-            Username
-            <input
-              type="text"
-              name="userid"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
-          </div>
+    <div >
+      <div className='loginMainBox'>
+        <div className="login-box">
+          <h1>Create Account</h1>
+          <form>
+            <div className="textbox">
+              <i className="fas fa-user"></i>
+              Username
+              <input
+                type="text"
+                name="userid" 
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
+            </div>
 
-          <div className="textbox">
-            <i className="fas fa-lock"></i>
-            Email
-            <input
-              type="email"
-              name="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-          <div className="textbox">
-            <i className="fas fa-lock"></i>
-            Password
-            <input
-              type="password"
-              name="pswrd"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-          <div className="textbox">
-            <i className="fas fa-lock"></i>
-            Role
-            <input
-              type="text"
-              name="role"
-              value={role}
-              onChange={(e) => setRole(e.target.value)}
-            />
-          </div>
-          <input type="button" onClick={handleSignup} value="Signup" />
-        </form>
+            <div className="textbox">
+              <i className="fas fa-lock"></i>
+              Email
+              <input
+                type="email"
+                name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div className="textbox">
+              <i className="fas fa-lock"></i>
+              Password
+              <input
+                type="password"
+                name="pswrd"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+            <div className="textbox">
+              <i className="fas fa-lock"></i>
+              Role
+              <input
+                type="text"
+                name="role"
+                value={role}
+                onChange={(e) => setRole(e.target.value)}
+              />
+            </div>
+            <input type="button" onClick={handleSignup} value="Signup" />
+          </form>
+        </div>
       </div>
     </div>
   );
