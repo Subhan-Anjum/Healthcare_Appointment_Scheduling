@@ -5,7 +5,7 @@ import '../Styles/Appointment.css';
 
 
 export default function appointment() {
-   
+
 
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
@@ -20,7 +20,7 @@ export default function appointment() {
     const history2 = useHistory();
 
     const handleAppointement = async () => {
-        
+
         try {
             const response = await fetch('http://localhost:3005/api/appointment', {
                 method: 'POST',
@@ -33,7 +33,7 @@ export default function appointment() {
             if (response.ok) {
                 // Appointement successful, handle accordingly (e.g., redirect) 
                 console.log('Appointment successful');
-                history2.push("/");
+                alert("your appointment was saved")
             } else {
                 // Handle Appointement failure
                 console.error('Appointement failed');
@@ -63,6 +63,7 @@ export default function appointment() {
                                 class="formbold-form-input"
                             />
                         </div>
+
                         <div class="formbold-mb-5">
                             <label for="phone" class="formbold-form-label"> Phone Number </label>
                             <input
@@ -94,7 +95,7 @@ export default function appointment() {
                                 id="address"
                                 value={address}
                                 onChange={(e) => setAddress(e.target.value)}
-                                placeholder="Enter your email"
+                                placeholder="Enter your Address"
                                 class="formbold-form-input" />
                         </div>
                         <div class="flex flex-wrap formbold--mx-3">
@@ -143,7 +144,9 @@ export default function appointment() {
 
 
                         <div>
-                            <button class ="formbold-btn"onClick={handleAppointement}>Book Appointment</button>
+                            <Link to="/">
+                                <button class="formbold-btn" onClick={handleAppointement}>Book Appointment</button>
+                            </Link>
                         </div>
                     </form>
                 </div>

@@ -2,16 +2,15 @@ const Doctor = require("../models/Doctor");
 
 // Create a new Doctor
 async function CreateDoctor(req, res) {
+  console.log("here")
   try {
-    console.log(req.body)
     const Doctors = await Doctor.create(req.body);
-    console.log(Doctors)
-    res.status(201).json(Doctors);
+    res.status(201).json(Doctors); 
   } catch (err) {
+    console.log("Error ", )
     res.status(500).json({ error: err.message });
   }
 }
-
 // Get all Doctor
 async function GetDoctors(req, res) {
   try {
@@ -21,6 +20,23 @@ async function GetDoctors(req, res) {
     res.status(500).json({ error: err.message });
   }
 }
+
+async function GetDoctorById(req, res) {
+  const doctorId = req.params.id; // Assuming the route parameter is named 'id'
+ console.log(doctorId);
+  try {
+    const doctor = await Doctor.findById(doctorId);
+
+    if (!doctor) {
+      return res.status(404).json({ error: 'Doctor not found' });
+    }
+
+    res.json(doctor);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+}
+
 
 // update a Doctor by ID
 async function UpdateDoctors(req, res) {
@@ -37,6 +53,7 @@ async function UpdateDoctors(req, res) {
 
 // delete a Doctor by ID
 async function DeleteDoctors(req, res) {
+
   try {
     const { id } = req.params;
     await Doctor.findByIdAndRemove(id);
@@ -51,4 +68,5 @@ module.exports = {
     GetDoctors,
     UpdateDoctors,
     DeleteDoctors,
+    GetDoctorById,
 };

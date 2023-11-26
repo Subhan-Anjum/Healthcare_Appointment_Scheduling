@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const userRoutes = require("./routes/userRoute");
 const appointmentRoutes = require("./routes/AppointmentRoutes");
+const doctorRoutes = require("./routes/DoctorRoutes");
 require("./utils/db");
 const cors = require("cors");
 port = 3005;
@@ -11,6 +12,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use("/api", userRoutes);
 app.use("/api", appointmentRoutes);
+app.use("/api", doctorRoutes);
 
 app.get("/", (req, res) => {
   res.send("User CRUD API");

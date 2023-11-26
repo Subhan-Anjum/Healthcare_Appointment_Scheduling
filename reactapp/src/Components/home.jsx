@@ -11,7 +11,6 @@ export default function Home() {
     const openPopup = () => {
         setPopupVisible(true);
     };
-
     const closePopup = () => {
         setPopupVisible(false);
     };
@@ -57,34 +56,16 @@ export default function Home() {
                                         <div class="Columntext">
                                             <div class="ImageRowText">
                                                 <div class="ImageIcons">
-                                                    <img src="../images/cardio.png" class="image_icon_size" alt="Doctor Image"></img><Link to="/appointment"class="nametext">Cardiologist</Link>
+                                                    <img src="../images/cardio.png" class="image_icon_size" alt="Doctor Image"></img><Link to="/ViewDoctors"class="nametext">Cardiologist</Link>
                                                 </div>
                                                 <div class="ImageIcons">
-                                                    <img src="../images/neuro.png" class="image_icon_size" alt="Doctor Image"></img><Link to="/appointment" class="nametext">Neurologists</Link>
+                                                    <img src="../images/neuro.png" class="image_icon_size" alt="Doctor Image"></img><Link to="/ViewDoctors" class="nametext">Neurologists</Link>
                                                 </div>
                                                 <div class="ImageIcons">
-                                                    <img src="../images/dermatlogist.png" class="image_icon_size" alt="Doctor Image"></img><Link to="/appointment" class="nametext">Dermatologist</Link>
+                                                    <img src="../images/dermatlogist.png" class="image_icon_size" alt="Doctor Image"></img><Link to="/ViewDoctors" class="nametext">Dermatologist</Link>
                                                 </div>
                                                 <div class="ImageIcons">
-                                                    <img src="../images/stomach.png" class="image_icon_size" alt="Doctor Image"></img><Link to="/appointment" class="nametext">Gastroenterologist</Link>
-                                                </div>
-
-                                            </div>
-                                            <span className="close-button" onClick={closePopup}>X</span>
-                                        </div>
-                                        <div class="Columntext">
-                                            <div class="ImageRowText">
-                                                <div class="ImageIcons">
-                                                    <img src="../images/b.png" class="image_icon_size" alt="Doctor Image"></img><Link to="/appointment" class="nametext">Pediatrician</Link>
-                                                </div>
-                                                <div class="ImageIcons">
-                                                    <img src="../images/a.png" class="image_icon_size" alt="Doctor Image"></img><Link to="/appointment" class="nametext">Endocrinologist</Link>
-                                                </div>
-                                                <div class="ImageIcons">
-                                                    <img src="../images/dentist.png" class="image_icon_size" alt="Doctor Image"></img><Link to="/appointment" class="nametext">Dentist</Link>
-                                                </div>
-                                                <div class="ImageIcons">
-                                                    <img src="../images/anesthia.png" class="image_icon_size" alt="Doctor Image"></img><Link to="/appointment" class="nametext">Allergist</Link>
+                                                    <img src="../images/stomach.png" class="image_icon_size" alt="Doctor Image"></img><Link to="/ViewDoctors" class="nametext">Gastroenterologist</Link>
                                                 </div>
 
                                             </div>
@@ -93,16 +74,34 @@ export default function Home() {
                                         <div class="Columntext">
                                             <div class="ImageRowText">
                                                 <div class="ImageIcons">
-                                                    <img src="../images/cardio.png" class="image_icon_size" alt="Doctor Image"></img><Link to="/appointment" class="nametext">Geriatrician</Link>
+                                                    <img src="../images/b.png" class="image_icon_size" alt="Doctor Image"></img><Link to="/ViewDoctors" class="nametext">Pediatrician</Link>
                                                 </div>
                                                 <div class="ImageIcons">
-                                                    <img src="../images/a.png" class="image_icon_size" alt="Doctor Image"></img><Link to="/appointment" class="nametext">Pulmonologist</Link>
+                                                    <img src="../images/a.png" class="image_icon_size" alt="Doctor Image"></img><Link to="/ViewDoctors" class="nametext">Endocrinologist</Link>
                                                 </div>
                                                 <div class="ImageIcons">
-                                                    <img src="../images/b.png" class="image_icon_size" alt="Doctor Image"></img><Link to="/appointment" class="nametext">Hematologist</Link>
+                                                    <img src="../images/dentist.png" class="image_icon_size" alt="Doctor Image"></img><Link to="/ViewDoctors" class="nametext">Dentist</Link>
                                                 </div>
                                                 <div class="ImageIcons">
-                                                    <img src="../images/c.png" class="image_icon_size" alt="Doctor Image"></img><Link to="/appointment" class="nametext">ENT Specialist</Link>
+                                                    <img src="../images/anesthia.png" class="image_icon_size" alt="Doctor Image"></img><Link to="/ViewDoctors" class="nametext">Allergist</Link>
+                                                </div>
+
+                                            </div>
+                                            <span className="close-button" onClick={closePopup}>X</span>
+                                        </div>
+                                        <div class="Columntext">
+                                            <div class="ImageRowText">
+                                                <div class="ImageIcons">
+                                                    <img src="../images/cardio.png" class="image_icon_size" alt="Doctor Image"></img><Link to="/ViewDoctors" class="nametext">Geriatrician</Link>
+                                                </div>
+                                                <div class="ImageIcons">
+                                                    <img src="../images/a.png" class="image_icon_size" alt="Doctor Image"></img><Link to="/ViewDoctors" class="nametext">Pulmonologist</Link>
+                                                </div>
+                                                <div class="ImageIcons">
+                                                    <img src="../images/b.png" class="image_icon_size" alt="Doctor Image"></img><Link to="/ViewDoctors" class="nametext">Hematologist</Link>
+                                                </div>
+                                                <div class="ImageIcons">
+                                                    <img src="../images/c.png" class="image_icon_size" alt="Doctor Image"></img><Link to="/ViewDoctors" class="nametext">ENT Specialist</Link>
                                                 </div>
 
                                             </div>

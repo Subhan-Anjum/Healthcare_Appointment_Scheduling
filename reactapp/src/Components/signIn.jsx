@@ -20,6 +20,11 @@ export default function SignIn() {
       if (response.ok) {
         // Login successful, handle accordingly (e.g., redirect)
         console.log('Login successful');
+        // const data=await response.json();
+        // role = data.userRole;
+        // if (role == "Doctor"){
+        //   history.push("/doctor");
+        // }
         history.push("/");
       } else {
         // Handle login failure

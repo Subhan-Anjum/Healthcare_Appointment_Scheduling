@@ -62,6 +62,7 @@ async function login(req, res, next) {
       message: "User logged in successfully",
       email: user.email,
       userid: user._id,
+      userRole: user.role,
       token: token,
     });
   } catch (err) {

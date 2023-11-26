@@ -6,11 +6,12 @@ const mongoose = require("mongoose");
 const DoctorSchema = new mongoose.Schema(
   {
     name: {type:String,required:true},
-    phone : {type:Number,required:true},
+    phone : {type:String,required:true},
     email: {type:String,required:true},
     address: {type:String,required:true},
-    fee: {type:String,required:true},
-    Experience: {type:String,required:true},
+    fee: {type:Number,required:true},
+    specialization: {type:String,required:true},
+    Experience: {type:Number,required:true}, 
 
      
     IsActive :{type:Boolean, default:true},

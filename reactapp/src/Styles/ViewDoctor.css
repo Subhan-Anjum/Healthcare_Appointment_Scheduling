@@ -1,0 +1,44 @@
+.doctor-profile {
+
+    text-align: center;
+    margin: 45px auto;
+    width: 960px;
+    height: 130px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: #fff;
+  }
+  
+
+  .doctor-profile img {
+    width: 10%;
+    border-radius: 50%;
+  }
+
+  .doctor-profile h3 {
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .doctor-profile p {
+    margin-top: 10px;
+    font-size: 16px;
+    font-size: 16px;
+  }
+
+  .book-appointment-btn {
+    margin-top: 20px;
+    margin-bottom: 23px;
+    margin-right: 10px;
+    background-color: rgb(255, 139, 30);
+    color: #fff;
+    padding: 5px 5px;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 5px;
+  }

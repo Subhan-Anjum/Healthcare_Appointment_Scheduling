@@ -14,6 +14,7 @@ router.put("/doctor/:id", DoctorController.UpdateDoctors);
 
 // delete a user by ID
 router.delete("/doctor/:id", DoctorController.DeleteDoctors);
+router.get("/doctor/:id", DoctorController.GetDoctorById);
 
 
 

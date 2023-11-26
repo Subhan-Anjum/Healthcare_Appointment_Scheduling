@@ -23,6 +23,8 @@ export default function SignUp() {
         // Signup successful, handle accordingly (e.g., redirect)
         console.log('Signup successful');
         history.push("/");
+        const data = await response.json();
+        const role = data._role;
       } else {
         // Handle signup failure
         console.error('Signup failed');
